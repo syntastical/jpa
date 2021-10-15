@@ -16,17 +16,17 @@ public class TestController {
         this.storeRepository = storeRepository;
     }
 
-    @Get("{id}")
+    @Get("/book/{id}")
     public Book getBook(Long id) {
         return bookRepository.findById(id).get();
     }
 
-    @Post("/{name}")
+    @Post("/book/{name}")
     public Book saveBook(String name) {
         return bookRepository.save(name);
     }
 
-    @Delete("/{id}")
+    @Delete("/book/{id}")
     public void delete(Long id) {
 
     }
@@ -35,9 +35,9 @@ public class TestController {
     public Store saveBook() {
         Store store = new Store("Walmart");
         Book book = new Book("Book1");
-        store.getBook().add(book);
+        book.setStore(store);
         Book book2 = new Book("Book2");
-        store.getBook().add(book2);
+        book2.setStore(store);
 
         return storeRepository.save(store);
     }

@@ -29,6 +29,8 @@ public class Book {
     @ManyToOne(targetEntity = Store.class)
     private Store store;
 
+    private String test;
+
     public Long getId() {
         return id;
     }
@@ -45,12 +47,22 @@ public class Book {
         this.name = name;
     }
 
+    @JsonIgnore
     public Store getStore() {
         return store;
     }
 
     public void setStore(Store store) {
+        store.getBook().add(this);
         this.store = store;
+    }
+
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
     }
 
     @Override

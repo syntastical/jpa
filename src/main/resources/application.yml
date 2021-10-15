@@ -3,17 +3,20 @@ micronaut:
     name: demo
 datasources:
   default:
-    url: jdbc:h2:mem:devDb;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
-#    url: jdbc:mysql://localhost:3306/db
-    driverClassName: org.h2.Driver
-#    driverClassName: com.mysql.cj.jdbc.Driver
+#    url: jdbc:h2:mem:devDb;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+#    driverClassName: org.h2.Driver
+#    username: root
+#    password: 'my-secret-pw'
+#    schema-generate: CREATE_DROP
+#    dialect: H2
+
+    url: jdbc:mysql://localhost:3306/db
+    driverClassName: com.mysql.cj.jdbc.Driver
     username: root
     password: 'my-secret-pw'
     schema-generate: CREATE_DROP
-    dialect: H2
+    dialect: MYSQL
 #    dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-jpa.default.properties.hibernate.hbm2ddl.auto: update
-
 
 jpa:
   default:
