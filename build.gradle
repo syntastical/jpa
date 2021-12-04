@@ -31,6 +31,8 @@ dependencies {
 //    runtimeOnly("com.h2database:h2")
     runtimeOnly("mysql:mysql-connector-java")
     implementation("io.micronaut:micronaut-validation")
+    implementation("io.micronaut.security:micronaut-security")
+    implementation("io.micronaut.reactor:micronaut-reactor")
 }
 
 

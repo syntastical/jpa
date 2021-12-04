@@ -1,7 +1,9 @@
 package com.sandbox;
 
 import io.micronaut.http.annotation.*;
+import io.micronaut.security.annotation.Secured;
 
+@Secured({"admin"})
 @Controller
 public class TestController {
 
@@ -40,5 +42,10 @@ public class TestController {
         book2.setStore(store);
 
         return storeRepository.save(store);
+    }
+
+    @Delete("book")
+    public void delete() {
+        bookRepository.deleteAll();
     }
 }

@@ -26,3 +26,15 @@ jpa:
           auto: update
         show_sql: true
 
+  security:
+    intercept-url-map:
+      - pattern: /**
+        access:
+          - isAuthenticated()
+    basic-auth:
+      enabled: true
+  router:
+    static-resources:
+      site:
+        paths:
+          - classpath:public

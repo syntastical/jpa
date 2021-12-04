@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
 
 @Entity
@@ -29,7 +30,8 @@ public class Book {
     @ManyToOne(targetEntity = Store.class)
     private Store store;
 
-    private String test;
+    private UUID isdn;
+
 
     public Long getId() {
         return id;
@@ -57,12 +59,12 @@ public class Book {
         this.store = store;
     }
 
-    public String getTest() {
-        return test;
+    public UUID getIsdn() {
+        return isdn;
     }
 
-    public void setTest(String test) {
-        this.test = test;
+    public void setIsdn(UUID isdn) {
+        this.isdn = isdn;
     }
 
     @Override
